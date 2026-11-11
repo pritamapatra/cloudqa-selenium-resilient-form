@@ -1,0 +1,754 @@
+<html><head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script async="" src="https://scripts.clarity.ms/0.8.77/clarity.js"></script><script async="" src="https://www.clarity.ms/tag/i44tza3a99"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.js"></script>
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "i44tza3a99");
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#mytextarea').summernote({
+                height: 100
+            });
+        });
+    </script>
+
+    <style>
+        .autocomplete-items {
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            /*position the autocomplete items to be the same width as the container:*/
+            top: 100%;
+            left: 0;
+            right: 0;
+        }
+
+            .autocomplete-items div {
+                padding: 10px;
+                cursor: pointer;
+                background-color: #fff;
+                border-bottom: 1px solid #d4d4d4;
+            }
+
+                .autocomplete-items div:hover {
+                    /*when hovering an item:*/
+                    background-color: #e9e9e9;
+                }
+
+        .autocomplete-active {
+            /*when navigating through the items using the arrow keys:*/
+            background-color: DodgerBlue !important;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <form method="post" class="qa_class_1" id="qa_id_1" action="/Home/AutomationPracticeForm">
+                <div class="qa_class_2">
+                    <div class="qa_class_3">
+                        <h2>Form</h2>
+                    </div>
+                    <div class="qa_class_4 qa_class_5">
+                        <label for="qa_id_2" name="qa_name_1" class="qa_class_6">First Name</label>
+                        <input id="qa_id_2" type="text" name="qa_name_2" class="qa_class_7" placeholder="Name">
+                    </div>
+                    <div class="qa_class_4 qa_class_5">
+                        <label for="qa_id_3" name="qa_name_3" class="qa_class_6">Last Name</label>
+                        <input id="qa_id_3" type="text" name="qa_name_4" class="qa_class_7" placeholder="Surname">
+                    </div>
+                    <div class="qa_class_4 qa_class_5">
+                        <label class="qa_class_6">Gender</label>
+                        <div class="qa_class_8">
+                            <input id="qa_id_4" type="radio" name="qa_name_5" value="Male">
+                            <span name="qa_name_6" for="qa_id_4" class="qa_class_6">Male</span>
+                            <input id="qa_id_5" type="radio" name="qa_name_5" value="Female">
+                            <span name="qa_name_7" for="qa_id_5" class="qa_class_6">Female</span>
+                            <input id="qa_id_6" type="radio" name="qa_name_5" value="Transgender">
+                            <span name="qa_name_8" for="qa_id_5" class="qa_class_6">Transgender</span>
+                        </div>
+                    </div>
+                    <div class="qa_class_4 qa_class_5">
+                        <label for="qa_id_7" name="qa_name_9" class="qa_class_6">Date of Birth</label>
+                        <input id="qa_id_7" type="text" name="qa_name_10" placeholder="YYYY-MM-DD" required="" pattern="^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$" title="Enter a date in this format YYYY-MM-DD" class="qa_class_7">
+                    </div>
+                    <div class="qa_class_4 qa_class_5">
+                        <label name="qa_name_11" for="qa_id_8" class="qa_class_6">Mobile #</label>
+                        <input id="qa_id_8" name="qa_name_12" class="qa_class_7" type="number" maxlength="10" pattern=".{10}" placeholder="Mobile Number">
+                    </div>
+                    <div class="qa_class_4 qa_class_5">
+                        <label name="qa_name_13" for="qa_id_9" class="qa_class_6">Email</label>
+                        <input id="qa_id_9" type="text" name="qa_name_14" class="qa_class_7" placeholder="Email">
+                    </div>
+                    <div class="qa_class_9 qa_class_4 qa_class_5">
+                        <label name="qa_name_15" for="qa_id_10" class="qa_class_6"> Country </label>
+                        <input id="qa_id_10" type="text" name="qa_name_15" placeholder="Country" class="qa_class_7">
+                    </div>
+                    <div class="qa_class_4 qa_class_5">
+                        <label name="qa_name_16" for="qa_id_11" class="qa_class_6"> State </label>
+                        <select class="qa_class_7" id="qa_id_11" name="qa_name_16">
+                            <option> -- Select Country -- </option>
+                            <option value="Afganistan"> Afganistan </option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Greenland">Greenland</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Nepal">Nepal</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Philippines">Philippines</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
+                        </select>
+                    </div>
+                    <div class="qa_class_4 qa_class_3">
+                        <label class="qa_class_6">Hobbies</label>
+                        <input type="checkbox" id="qa_id_12" value="Dance" name="qa_name_17">
+                        <span name="qa_name_18" for="qa_id_12">Dance</span>
+                        <input type="checkbox" id="qa_id_13" value="Reading" name="qa_name_17">
+                        <span name="qa_name_19" for="qa_id_13">Reading</span>
+                        <input type="checkbox" id="qa_id_14" value="Cricket" name="qa_name_17">
+                        <span name="qa_name_20" for="qa_id_14">Cricket</span>
+                    </div>
+                    <div class="qa_class_4 qa_class_3">
+                        <label class="qa_class_6">About Yourself</label>
+                        <textarea class="qa_class_7" rows="3" placeholder="About Yourself" name="qa_name_21"></textarea>
+                    </div>
+                    <div class="qa_class_4 qa_class_3">
+                        <label class="qa_class_6">Description</label>
+                        <textarea id="qa_id_15" style="display: none;"></textarea><div class="qa_class_10 qa_class_11 qa_class_12"><div class="qa_class_13"><div class="qa_class_14"></div></div><div class="qa_class_15 qa_class_16" role="toolbar"><div class="qa_class_17 qa_class_18 qa_class_19"><div class="qa_class_17 qa_class_18"><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23 qa_class_24" tabindex="-1" data-toggle="dropdown" title="" aria-label="Style" data-original-title="Style"><i class="qa_class_25"></i></button><div class="qa_class_26 qa_class_27 qa_class_28" role="list" aria-label="Style"><a class="qa_class_29" href="#" data-value="p" role="listitem" aria-label="p"><p>Normal</p></a><a class="qa_class_29" href="#" data-value="blockquote" role="listitem" aria-label="blockquote"><blockquote class="qa_class_30">Blockquote</blockquote></a><a class="qa_class_29" href="#" data-value="pre" role="listitem" aria-label="pre"><pre>Code</pre></a><a class="qa_class_29" href="#" data-value="h1" role="listitem" aria-label="h1"><h1>Header 1</h1></a><a class="qa_class_29" href="#" data-value="h2" role="listitem" aria-label="h2"><h2>Header 2</h2></a><a class="qa_class_29" href="#" data-value="h3" role="listitem" aria-label="h3"><h3>Header 3</h3></a><a class="qa_class_29" href="#" data-value="h4" role="listitem" aria-label="h4"><h4>Header 4</h4></a><a class="qa_class_29" href="#" data-value="h5" role="listitem" aria-label="h5"><h5>Header 5</h5></a><a class="qa_class_29" href="#" data-value="h6" role="listitem" aria-label="h6"><h6>Header 6</h6></a></div></div></div><div class="qa_class_17 qa_class_18 qa_class_31"><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23 qa_class_32" tabindex="-1" title="" aria-label="Bold (⌘+B)" data-original-title="Bold (⌘+B)"><i class="qa_class_33"></i></button><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23 qa_class_34" tabindex="-1" title="" aria-label="Underline (⌘+U)" data-original-title="Underline (⌘+U)"><i class="qa_class_35"></i></button><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23" tabindex="-1" title="" aria-label="Remove Font Style (⌘+\)" data-original-title="Remove Font Style (⌘+\)"><i class="qa_class_36"></i></button></div><div class="qa_class_17 qa_class_18 qa_class_37"><div class="qa_class_17 qa_class_18"><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23 qa_class_24" tabindex="-1" data-toggle="dropdown" title="" aria-label="Font Family" data-original-title="Font Family"><span class="qa_class_38" style="font-family: &quot;Helvetica Neue&quot;;">Helvetica Neue</span></button><div class="qa_class_26 qa_class_27 qa_class_39 qa_class_40" role="list" aria-label="Font Family"><a class="qa_class_29" href="#" data-value="Arial" role="listitem" aria-label="Arial"><i class="qa_class_41"></i> <span style="font-family: 'Arial'">Arial</span></a><a class="qa_class_29" href="#" data-value="Arial Black" role="listitem" aria-label="Arial Black"><i class="qa_class_41"></i> <span style="font-family: 'Arial Black'">Arial Black</span></a><a class="qa_class_29" href="#" data-value="Comic Sans MS" role="listitem" aria-label="Comic Sans MS"><i class="qa_class_41"></i> <span style="font-family: 'Comic Sans MS'">Comic Sans MS</span></a><a class="qa_class_29" href="#" data-value="Courier New" role="listitem" aria-label="Courier New"><i class="qa_class_41"></i> <span style="font-family: 'Courier New'">Courier New</span></a><a class="qa_class_29 qa_class_42" href="#" data-value="Helvetica Neue" role="listitem" aria-label="Helvetica Neue"><i class="qa_class_41"></i> <span style="font-family: 'Helvetica Neue'">Helvetica Neue</span></a><a class="qa_class_29" href="#" data-value="Helvetica" role="listitem" aria-label="Helvetica"><i class="qa_class_41"></i> <span style="font-family: 'Helvetica'">Helvetica</span></a><a class="qa_class_29" href="#" data-value="Impact" role="listitem" aria-label="Impact"><i class="qa_class_41"></i> <span style="font-family: 'Impact'">Impact</span></a><a class="qa_class_29" href="#" data-value="Lucida Grande" role="listitem" aria-label="Lucida Grande"><i class="qa_class_41"></i> <span style="font-family: 'Lucida Grande'">Lucida Grande</span></a><a class="qa_class_29" href="#" data-value="Tahoma" role="listitem" aria-label="Tahoma"><i class="qa_class_41"></i> <span style="font-family: 'Tahoma'">Tahoma</span></a><a class="qa_class_29" href="#" data-value="Times New Roman" role="listitem" aria-label="Times New Roman"><i class="qa_class_41"></i> <span style="font-family: 'Times New Roman'">Times New Roman</span></a><a class="qa_class_29" href="#" data-value="Verdana" role="listitem" aria-label="Verdana"><i class="qa_class_41"></i> <span style="font-family: 'Verdana'">Verdana</span></a></div></div></div><div class="qa_class_17 qa_class_18 qa_class_43"><div class="qa_class_17 qa_class_18 qa_class_43 qa_class_44"><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23 qa_class_45" tabindex="-1" title="" aria-label="Recent Color" data-original-title="Recent Color" data-backcolor="#FFFF00" data-forecolor="#000000"><i class="qa_class_46 qa_class_47" style="background-color: rgb(255, 255, 0); color: rgb(0, 0, 0);"></i></button><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23 qa_class_24" tabindex="-1" data-toggle="dropdown" title="" aria-label="More Color" data-original-title="More Color"></button><div class="qa_class_26 qa_class_27" role="list"><div class="qa_class_48"><div class="qa_class_49">Background Color</div><div><button type="button" class="qa_class_50 qa_class_21 qa_class_22 qa_class_51" data-event="backColor" data-value="transparent">Transparent</button></div><div class="qa_class_52" data-event="backColor"><!-- back colors --><div class="qa_class_53"><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#000000" data-event="backColor" data-value="#000000" title="" aria-label="Black" data-toggle="button" tabindex="-1" data-original-title="Black"></button><button type="button" class="qa_class_55" style="background-color:#424242" data-event="backColor" data-value="#424242" title="" aria-label="Tundora" data-toggle="button" tabindex="-1" data-original-title="Tundora"></button><button type="button" class="qa_class_55" style="background-color:#636363" data-event="backColor" data-value="#636363" title="" aria-label="Dove Gray" data-toggle="button" tabindex="-1" data-original-title="Dove Gray"></button><button type="button" class="qa_class_55" style="background-color:#9C9C94" data-event="backColor" data-value="#9C9C94" title="" aria-label="Star Dust" data-toggle="button" tabindex="-1" data-original-title="Star Dust"></button><button type="button" class="qa_class_55" style="background-color:#CEC6CE" data-event="backColor" data-value="#CEC6CE" title="" aria-label="Pale Slate" data-toggle="button" tabindex="-1" data-original-title="Pale Slate"></button><button type="button" class="qa_class_55" style="background-color:#EFEFEF" data-event="backColor" data-value="#EFEFEF" title="" aria-label="Gallery" data-toggle="button" tabindex="-1" data-original-title="Gallery"></button><button type="button" class="qa_class_55" style="background-color:#F7F7F7" data-event="backColor" data-value="#F7F7F7" title="" aria-label="Alabaster" data-toggle="button" tabindex="-1" data-original-title="Alabaster"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="backColor" data-value="#FFFFFF" title="" aria-label="White" data-toggle="button" tabindex="-1" data-original-title="White"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#FF0000" data-event="backColor" data-value="#FF0000" title="" aria-label="Red" data-toggle="button" tabindex="-1" data-original-title="Red"></button><button type="button" class="qa_class_55" style="background-color:#FF9C00" data-event="backColor" data-value="#FF9C00" title="" aria-label="Orange Peel" data-toggle="button" tabindex="-1" data-original-title="Orange Peel"></button><button type="button" class="qa_class_55" style="background-color:#FFFF00" data-event="backColor" data-value="#FFFF00" title="" aria-label="Yellow" data-toggle="button" tabindex="-1" data-original-title="Yellow"></button><button type="button" class="qa_class_55" style="background-color:#00FF00" data-event="backColor" data-value="#00FF00" title="" aria-label="Green" data-toggle="button" tabindex="-1" data-original-title="Green"></button><button type="button" class="qa_class_55" style="background-color:#00FFFF" data-event="backColor" data-value="#00FFFF" title="" aria-label="Cyan" data-toggle="button" tabindex="-1" data-original-title="Cyan"></button><button type="button" class="qa_class_55" style="background-color:#0000FF" data-event="backColor" data-value="#0000FF" title="" aria-label="Blue" data-toggle="button" tabindex="-1" data-original-title="Blue"></button><button type="button" class="qa_class_55" style="background-color:#9C00FF" data-event="backColor" data-value="#9C00FF" title="" aria-label="Electric Violet" data-toggle="button" tabindex="-1" data-original-title="Electric Violet"></button><button type="button" class="qa_class_55" style="background-color:#FF00FF" data-event="backColor" data-value="#FF00FF" title="" aria-label="Magenta" data-toggle="button" tabindex="-1" data-original-title="Magenta"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#F7C6CE" data-event="backColor" data-value="#F7C6CE" title="" aria-label="Azalea" data-toggle="button" tabindex="-1" data-original-title="Azalea"></button><button type="button" class="qa_class_55" style="background-color:#FFE7CE" data-event="backColor" data-value="#FFE7CE" title="" aria-label="Karry" data-toggle="button" tabindex="-1" data-original-title="Karry"></button><button type="button" class="qa_class_55" style="background-color:#FFEFC6" data-event="backColor" data-value="#FFEFC6" title="" aria-label="Egg White" data-toggle="button" tabindex="-1" data-original-title="Egg White"></button><button type="button" class="qa_class_55" style="background-color:#D6EFD6" data-event="backColor" data-value="#D6EFD6" title="" aria-label="Zanah" data-toggle="button" tabindex="-1" data-original-title="Zanah"></button><button type="button" class="qa_class_55" style="background-color:#CEDEE7" data-event="backColor" data-value="#CEDEE7" title="" aria-label="Botticelli" data-toggle="button" tabindex="-1" data-original-title="Botticelli"></button><button type="button" class="qa_class_55" style="background-color:#CEE7F7" data-event="backColor" data-value="#CEE7F7" title="" aria-label="Tropical Blue" data-toggle="button" tabindex="-1" data-original-title="Tropical Blue"></button><button type="button" class="qa_class_55" style="background-color:#D6D6E7" data-event="backColor" data-value="#D6D6E7" title="" aria-label="Mischka" data-toggle="button" tabindex="-1" data-original-title="Mischka"></button><button type="button" class="qa_class_55" style="background-color:#E7D6DE" data-event="backColor" data-value="#E7D6DE" title="" aria-label="Twilight" data-toggle="button" tabindex="-1" data-original-title="Twilight"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#E79C9C" data-event="backColor" data-value="#E79C9C" title="" aria-label="Tonys Pink" data-toggle="button" tabindex="-1" data-original-title="Tonys Pink"></button><button type="button" class="qa_class_55" style="background-color:#FFC69C" data-event="backColor" data-value="#FFC69C" title="" aria-label="Peach Orange" data-toggle="button" tabindex="-1" data-original-title="Peach Orange"></button><button type="button" class="qa_class_55" style="background-color:#FFE79C" data-event="backColor" data-value="#FFE79C" title="" aria-label="Cream Brulee" data-toggle="button" tabindex="-1" data-original-title="Cream Brulee"></button><button type="button" class="qa_class_55" style="background-color:#B5D6A5" data-event="backColor" data-value="#B5D6A5" title="" aria-label="Sprout" data-toggle="button" tabindex="-1" data-original-title="Sprout"></button><button type="button" class="qa_class_55" style="background-color:#A5C6CE" data-event="backColor" data-value="#A5C6CE" title="" aria-label="Casper" data-toggle="button" tabindex="-1" data-original-title="Casper"></button><button type="button" class="qa_class_55" style="background-color:#9CC6EF" data-event="backColor" data-value="#9CC6EF" title="" aria-label="Perano" data-toggle="button" tabindex="-1" data-original-title="Perano"></button><button type="button" class="qa_class_55" style="background-color:#B5A5D6" data-event="backColor" data-value="#B5A5D6" title="" aria-label="Cold Purple" data-toggle="button" tabindex="-1" data-original-title="Cold Purple"></button><button type="button" class="qa_class_55" style="background-color:#D6A5BD" data-event="backColor" data-value="#D6A5BD" title="" aria-label="Careys Pink" data-toggle="button" tabindex="-1" data-original-title="Careys Pink"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#E76363" data-event="backColor" data-value="#E76363" title="" aria-label="Mandy" data-toggle="button" tabindex="-1" data-original-title="Mandy"></button><button type="button" class="qa_class_55" style="background-color:#F7AD6B" data-event="backColor" data-value="#F7AD6B" title="" aria-label="Rajah" data-toggle="button" tabindex="-1" data-original-title="Rajah"></button><button type="button" class="qa_class_55" style="background-color:#FFD663" data-event="backColor" data-value="#FFD663" title="" aria-label="Dandelion" data-toggle="button" tabindex="-1" data-original-title="Dandelion"></button><button type="button" class="qa_class_55" style="background-color:#94BD7B" data-event="backColor" data-value="#94BD7B" title="" aria-label="Olivine" data-toggle="button" tabindex="-1" data-original-title="Olivine"></button><button type="button" class="qa_class_55" style="background-color:#73A5AD" data-event="backColor" data-value="#73A5AD" title="" aria-label="Gulf Stream" data-toggle="button" tabindex="-1" data-original-title="Gulf Stream"></button><button type="button" class="qa_class_55" style="background-color:#6BADDE" data-event="backColor" data-value="#6BADDE" title="" aria-label="Viking" data-toggle="button" tabindex="-1" data-original-title="Viking"></button><button type="button" class="qa_class_55" style="background-color:#8C7BC6" data-event="backColor" data-value="#8C7BC6" title="" aria-label="Blue Marguerite" data-toggle="button" tabindex="-1" data-original-title="Blue Marguerite"></button><button type="button" class="qa_class_55" style="background-color:#C67BA5" data-event="backColor" data-value="#C67BA5" title="" aria-label="Puce" data-toggle="button" tabindex="-1" data-original-title="Puce"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#CE0000" data-event="backColor" data-value="#CE0000" title="" aria-label="Guardsman Red" data-toggle="button" tabindex="-1" data-original-title="Guardsman Red"></button><button type="button" class="qa_class_55" style="background-color:#E79439" data-event="backColor" data-value="#E79439" title="" aria-label="Fire Bush" data-toggle="button" tabindex="-1" data-original-title="Fire Bush"></button><button type="button" class="qa_class_55" style="background-color:#EFC631" data-event="backColor" data-value="#EFC631" title="" aria-label="Golden Dream" data-toggle="button" tabindex="-1" data-original-title="Golden Dream"></button><button type="button" class="qa_class_55" style="background-color:#6BA54A" data-event="backColor" data-value="#6BA54A" title="" aria-label="Chelsea Cucumber" data-toggle="button" tabindex="-1" data-original-title="Chelsea Cucumber"></button><button type="button" class="qa_class_55" style="background-color:#4A7B8C" data-event="backColor" data-value="#4A7B8C" title="" aria-label="Smalt Blue" data-toggle="button" tabindex="-1" data-original-title="Smalt Blue"></button><button type="button" class="qa_class_55" style="background-color:#3984C6" data-event="backColor" data-value="#3984C6" title="" aria-label="Boston Blue" data-toggle="button" tabindex="-1" data-original-title="Boston Blue"></button><button type="button" class="qa_class_55" style="background-color:#634AA5" data-event="backColor" data-value="#634AA5" title="" aria-label="Butterfly Bush" data-toggle="button" tabindex="-1" data-original-title="Butterfly Bush"></button><button type="button" class="qa_class_55" style="background-color:#A54A7B" data-event="backColor" data-value="#A54A7B" title="" aria-label="Cadillac" data-toggle="button" tabindex="-1" data-original-title="Cadillac"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#9C0000" data-event="backColor" data-value="#9C0000" title="" aria-label="Sangria" data-toggle="button" tabindex="-1" data-original-title="Sangria"></button><button type="button" class="qa_class_55" style="background-color:#B56308" data-event="backColor" data-value="#B56308" title="" aria-label="Mai Tai" data-toggle="button" tabindex="-1" data-original-title="Mai Tai"></button><button type="button" class="qa_class_55" style="background-color:#BD9400" data-event="backColor" data-value="#BD9400" title="" aria-label="Buddha Gold" data-toggle="button" tabindex="-1" data-original-title="Buddha Gold"></button><button type="button" class="qa_class_55" style="background-color:#397B21" data-event="backColor" data-value="#397B21" title="" aria-label="Forest Green" data-toggle="button" tabindex="-1" data-original-title="Forest Green"></button><button type="button" class="qa_class_55" style="background-color:#104A5A" data-event="backColor" data-value="#104A5A" title="" aria-label="Eden" data-toggle="button" tabindex="-1" data-original-title="Eden"></button><button type="button" class="qa_class_55" style="background-color:#085294" data-event="backColor" data-value="#085294" title="" aria-label="Venice Blue" data-toggle="button" tabindex="-1" data-original-title="Venice Blue"></button><button type="button" class="qa_class_55" style="background-color:#311873" data-event="backColor" data-value="#311873" title="" aria-label="Meteorite" data-toggle="button" tabindex="-1" data-original-title="Meteorite"></button><button type="button" class="qa_class_55" style="background-color:#731842" data-event="backColor" data-value="#731842" title="" aria-label="Claret" data-toggle="button" tabindex="-1" data-original-title="Claret"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#630000" data-event="backColor" data-value="#630000" title="" aria-label="Rosewood" data-toggle="button" tabindex="-1" data-original-title="Rosewood"></button><button type="button" class="qa_class_55" style="background-color:#7B3900" data-event="backColor" data-value="#7B3900" title="" aria-label="Cinnamon" data-toggle="button" tabindex="-1" data-original-title="Cinnamon"></button><button type="button" class="qa_class_55" style="background-color:#846300" data-event="backColor" data-value="#846300" title="" aria-label="Olive" data-toggle="button" tabindex="-1" data-original-title="Olive"></button><button type="button" class="qa_class_55" style="background-color:#295218" data-event="backColor" data-value="#295218" title="" aria-label="Parsley" data-toggle="button" tabindex="-1" data-original-title="Parsley"></button><button type="button" class="qa_class_55" style="background-color:#083139" data-event="backColor" data-value="#083139" title="" aria-label="Tiber" data-toggle="button" tabindex="-1" data-original-title="Tiber"></button><button type="button" class="qa_class_55" style="background-color:#003163" data-event="backColor" data-value="#003163" title="" aria-label="Midnight Blue" data-toggle="button" tabindex="-1" data-original-title="Midnight Blue"></button><button type="button" class="qa_class_55" style="background-color:#21104A" data-event="backColor" data-value="#21104A" title="" aria-label="Valentino" data-toggle="button" tabindex="-1" data-original-title="Valentino"></button><button type="button" class="qa_class_55" style="background-color:#4A1031" data-event="backColor" data-value="#4A1031" title="" aria-label="Loulou" data-toggle="button" tabindex="-1" data-original-title="Loulou"></button></div></div></div><div><button type="button" class="qa_class_56 qa_class_21 qa_class_22 qa_class_51" data-event="openPalette" data-value="backColorPicker-17943858987331">Select</button><input type="color" id="qa_id_16" class="qa_class_20 qa_class_57" value="#FFFF00" data-event="backColorPalette-17943858987331"></div><div class="qa_class_58" id="qa_id_17" data-event="backColor"><div class="qa_class_53"><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="backColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="backColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="backColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="backColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="backColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="backColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="backColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="backColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button></div></div></div></div><div class="qa_class_48"><div class="qa_class_49">Text Color</div><div><button type="button" class="qa_class_50 qa_class_21 qa_class_22 qa_class_51" data-event="removeFormat" data-value="foreColor">Reset to default</button></div><div class="qa_class_52" data-event="foreColor"><!-- fore colors --><div class="qa_class_53"><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#000000" data-event="foreColor" data-value="#000000" title="" aria-label="Black" data-toggle="button" tabindex="-1" data-original-title="Black"></button><button type="button" class="qa_class_55" style="background-color:#424242" data-event="foreColor" data-value="#424242" title="" aria-label="Tundora" data-toggle="button" tabindex="-1" data-original-title="Tundora"></button><button type="button" class="qa_class_55" style="background-color:#636363" data-event="foreColor" data-value="#636363" title="" aria-label="Dove Gray" data-toggle="button" tabindex="-1" data-original-title="Dove Gray"></button><button type="button" class="qa_class_55" style="background-color:#9C9C94" data-event="foreColor" data-value="#9C9C94" title="" aria-label="Star Dust" data-toggle="button" tabindex="-1" data-original-title="Star Dust"></button><button type="button" class="qa_class_55" style="background-color:#CEC6CE" data-event="foreColor" data-value="#CEC6CE" title="" aria-label="Pale Slate" data-toggle="button" tabindex="-1" data-original-title="Pale Slate"></button><button type="button" class="qa_class_55" style="background-color:#EFEFEF" data-event="foreColor" data-value="#EFEFEF" title="" aria-label="Gallery" data-toggle="button" tabindex="-1" data-original-title="Gallery"></button><button type="button" class="qa_class_55" style="background-color:#F7F7F7" data-event="foreColor" data-value="#F7F7F7" title="" aria-label="Alabaster" data-toggle="button" tabindex="-1" data-original-title="Alabaster"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="foreColor" data-value="#FFFFFF" title="" aria-label="White" data-toggle="button" tabindex="-1" data-original-title="White"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#FF0000" data-event="foreColor" data-value="#FF0000" title="" aria-label="Red" data-toggle="button" tabindex="-1" data-original-title="Red"></button><button type="button" class="qa_class_55" style="background-color:#FF9C00" data-event="foreColor" data-value="#FF9C00" title="" aria-label="Orange Peel" data-toggle="button" tabindex="-1" data-original-title="Orange Peel"></button><button type="button" class="qa_class_55" style="background-color:#FFFF00" data-event="foreColor" data-value="#FFFF00" title="" aria-label="Yellow" data-toggle="button" tabindex="-1" data-original-title="Yellow"></button><button type="button" class="qa_class_55" style="background-color:#00FF00" data-event="foreColor" data-value="#00FF00" title="" aria-label="Green" data-toggle="button" tabindex="-1" data-original-title="Green"></button><button type="button" class="qa_class_55" style="background-color:#00FFFF" data-event="foreColor" data-value="#00FFFF" title="" aria-label="Cyan" data-toggle="button" tabindex="-1" data-original-title="Cyan"></button><button type="button" class="qa_class_55" style="background-color:#0000FF" data-event="foreColor" data-value="#0000FF" title="" aria-label="Blue" data-toggle="button" tabindex="-1" data-original-title="Blue"></button><button type="button" class="qa_class_55" style="background-color:#9C00FF" data-event="foreColor" data-value="#9C00FF" title="" aria-label="Electric Violet" data-toggle="button" tabindex="-1" data-original-title="Electric Violet"></button><button type="button" class="qa_class_55" style="background-color:#FF00FF" data-event="foreColor" data-value="#FF00FF" title="" aria-label="Magenta" data-toggle="button" tabindex="-1" data-original-title="Magenta"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#F7C6CE" data-event="foreColor" data-value="#F7C6CE" title="" aria-label="Azalea" data-toggle="button" tabindex="-1" data-original-title="Azalea"></button><button type="button" class="qa_class_55" style="background-color:#FFE7CE" data-event="foreColor" data-value="#FFE7CE" title="" aria-label="Karry" data-toggle="button" tabindex="-1" data-original-title="Karry"></button><button type="button" class="qa_class_55" style="background-color:#FFEFC6" data-event="foreColor" data-value="#FFEFC6" title="" aria-label="Egg White" data-toggle="button" tabindex="-1" data-original-title="Egg White"></button><button type="button" class="qa_class_55" style="background-color:#D6EFD6" data-event="foreColor" data-value="#D6EFD6" title="" aria-label="Zanah" data-toggle="button" tabindex="-1" data-original-title="Zanah"></button><button type="button" class="qa_class_55" style="background-color:#CEDEE7" data-event="foreColor" data-value="#CEDEE7" title="" aria-label="Botticelli" data-toggle="button" tabindex="-1" data-original-title="Botticelli"></button><button type="button" class="qa_class_55" style="background-color:#CEE7F7" data-event="foreColor" data-value="#CEE7F7" title="" aria-label="Tropical Blue" data-toggle="button" tabindex="-1" data-original-title="Tropical Blue"></button><button type="button" class="qa_class_55" style="background-color:#D6D6E7" data-event="foreColor" data-value="#D6D6E7" title="" aria-label="Mischka" data-toggle="button" tabindex="-1" data-original-title="Mischka"></button><button type="button" class="qa_class_55" style="background-color:#E7D6DE" data-event="foreColor" data-value="#E7D6DE" title="" aria-label="Twilight" data-toggle="button" tabindex="-1" data-original-title="Twilight"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#E79C9C" data-event="foreColor" data-value="#E79C9C" title="" aria-label="Tonys Pink" data-toggle="button" tabindex="-1" data-original-title="Tonys Pink"></button><button type="button" class="qa_class_55" style="background-color:#FFC69C" data-event="foreColor" data-value="#FFC69C" title="" aria-label="Peach Orange" data-toggle="button" tabindex="-1" data-original-title="Peach Orange"></button><button type="button" class="qa_class_55" style="background-color:#FFE79C" data-event="foreColor" data-value="#FFE79C" title="" aria-label="Cream Brulee" data-toggle="button" tabindex="-1" data-original-title="Cream Brulee"></button><button type="button" class="qa_class_55" style="background-color:#B5D6A5" data-event="foreColor" data-value="#B5D6A5" title="" aria-label="Sprout" data-toggle="button" tabindex="-1" data-original-title="Sprout"></button><button type="button" class="qa_class_55" style="background-color:#A5C6CE" data-event="foreColor" data-value="#A5C6CE" title="" aria-label="Casper" data-toggle="button" tabindex="-1" data-original-title="Casper"></button><button type="button" class="qa_class_55" style="background-color:#9CC6EF" data-event="foreColor" data-value="#9CC6EF" title="" aria-label="Perano" data-toggle="button" tabindex="-1" data-original-title="Perano"></button><button type="button" class="qa_class_55" style="background-color:#B5A5D6" data-event="foreColor" data-value="#B5A5D6" title="" aria-label="Cold Purple" data-toggle="button" tabindex="-1" data-original-title="Cold Purple"></button><button type="button" class="qa_class_55" style="background-color:#D6A5BD" data-event="foreColor" data-value="#D6A5BD" title="" aria-label="Careys Pink" data-toggle="button" tabindex="-1" data-original-title="Careys Pink"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#E76363" data-event="foreColor" data-value="#E76363" title="" aria-label="Mandy" data-toggle="button" tabindex="-1" data-original-title="Mandy"></button><button type="button" class="qa_class_55" style="background-color:#F7AD6B" data-event="foreColor" data-value="#F7AD6B" title="" aria-label="Rajah" data-toggle="button" tabindex="-1" data-original-title="Rajah"></button><button type="button" class="qa_class_55" style="background-color:#FFD663" data-event="foreColor" data-value="#FFD663" title="" aria-label="Dandelion" data-toggle="button" tabindex="-1" data-original-title="Dandelion"></button><button type="button" class="qa_class_55" style="background-color:#94BD7B" data-event="foreColor" data-value="#94BD7B" title="" aria-label="Olivine" data-toggle="button" tabindex="-1" data-original-title="Olivine"></button><button type="button" class="qa_class_55" style="background-color:#73A5AD" data-event="foreColor" data-value="#73A5AD" title="" aria-label="Gulf Stream" data-toggle="button" tabindex="-1" data-original-title="Gulf Stream"></button><button type="button" class="qa_class_55" style="background-color:#6BADDE" data-event="foreColor" data-value="#6BADDE" title="" aria-label="Viking" data-toggle="button" tabindex="-1" data-original-title="Viking"></button><button type="button" class="qa_class_55" style="background-color:#8C7BC6" data-event="foreColor" data-value="#8C7BC6" title="" aria-label="Blue Marguerite" data-toggle="button" tabindex="-1" data-original-title="Blue Marguerite"></button><button type="button" class="qa_class_55" style="background-color:#C67BA5" data-event="foreColor" data-value="#C67BA5" title="" aria-label="Puce" data-toggle="button" tabindex="-1" data-original-title="Puce"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#CE0000" data-event="foreColor" data-value="#CE0000" title="" aria-label="Guardsman Red" data-toggle="button" tabindex="-1" data-original-title="Guardsman Red"></button><button type="button" class="qa_class_55" style="background-color:#E79439" data-event="foreColor" data-value="#E79439" title="" aria-label="Fire Bush" data-toggle="button" tabindex="-1" data-original-title="Fire Bush"></button><button type="button" class="qa_class_55" style="background-color:#EFC631" data-event="foreColor" data-value="#EFC631" title="" aria-label="Golden Dream" data-toggle="button" tabindex="-1" data-original-title="Golden Dream"></button><button type="button" class="qa_class_55" style="background-color:#6BA54A" data-event="foreColor" data-value="#6BA54A" title="" aria-label="Chelsea Cucumber" data-toggle="button" tabindex="-1" data-original-title="Chelsea Cucumber"></button><button type="button" class="qa_class_55" style="background-color:#4A7B8C" data-event="foreColor" data-value="#4A7B8C" title="" aria-label="Smalt Blue" data-toggle="button" tabindex="-1" data-original-title="Smalt Blue"></button><button type="button" class="qa_class_55" style="background-color:#3984C6" data-event="foreColor" data-value="#3984C6" title="" aria-label="Boston Blue" data-toggle="button" tabindex="-1" data-original-title="Boston Blue"></button><button type="button" class="qa_class_55" style="background-color:#634AA5" data-event="foreColor" data-value="#634AA5" title="" aria-label="Butterfly Bush" data-toggle="button" tabindex="-1" data-original-title="Butterfly Bush"></button><button type="button" class="qa_class_55" style="background-color:#A54A7B" data-event="foreColor" data-value="#A54A7B" title="" aria-label="Cadillac" data-toggle="button" tabindex="-1" data-original-title="Cadillac"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#9C0000" data-event="foreColor" data-value="#9C0000" title="" aria-label="Sangria" data-toggle="button" tabindex="-1" data-original-title="Sangria"></button><button type="button" class="qa_class_55" style="background-color:#B56308" data-event="foreColor" data-value="#B56308" title="" aria-label="Mai Tai" data-toggle="button" tabindex="-1" data-original-title="Mai Tai"></button><button type="button" class="qa_class_55" style="background-color:#BD9400" data-event="foreColor" data-value="#BD9400" title="" aria-label="Buddha Gold" data-toggle="button" tabindex="-1" data-original-title="Buddha Gold"></button><button type="button" class="qa_class_55" style="background-color:#397B21" data-event="foreColor" data-value="#397B21" title="" aria-label="Forest Green" data-toggle="button" tabindex="-1" data-original-title="Forest Green"></button><button type="button" class="qa_class_55" style="background-color:#104A5A" data-event="foreColor" data-value="#104A5A" title="" aria-label="Eden" data-toggle="button" tabindex="-1" data-original-title="Eden"></button><button type="button" class="qa_class_55" style="background-color:#085294" data-event="foreColor" data-value="#085294" title="" aria-label="Venice Blue" data-toggle="button" tabindex="-1" data-original-title="Venice Blue"></button><button type="button" class="qa_class_55" style="background-color:#311873" data-event="foreColor" data-value="#311873" title="" aria-label="Meteorite" data-toggle="button" tabindex="-1" data-original-title="Meteorite"></button><button type="button" class="qa_class_55" style="background-color:#731842" data-event="foreColor" data-value="#731842" title="" aria-label="Claret" data-toggle="button" tabindex="-1" data-original-title="Claret"></button></div><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#630000" data-event="foreColor" data-value="#630000" title="" aria-label="Rosewood" data-toggle="button" tabindex="-1" data-original-title="Rosewood"></button><button type="button" class="qa_class_55" style="background-color:#7B3900" data-event="foreColor" data-value="#7B3900" title="" aria-label="Cinnamon" data-toggle="button" tabindex="-1" data-original-title="Cinnamon"></button><button type="button" class="qa_class_55" style="background-color:#846300" data-event="foreColor" data-value="#846300" title="" aria-label="Olive" data-toggle="button" tabindex="-1" data-original-title="Olive"></button><button type="button" class="qa_class_55" style="background-color:#295218" data-event="foreColor" data-value="#295218" title="" aria-label="Parsley" data-toggle="button" tabindex="-1" data-original-title="Parsley"></button><button type="button" class="qa_class_55" style="background-color:#083139" data-event="foreColor" data-value="#083139" title="" aria-label="Tiber" data-toggle="button" tabindex="-1" data-original-title="Tiber"></button><button type="button" class="qa_class_55" style="background-color:#003163" data-event="foreColor" data-value="#003163" title="" aria-label="Midnight Blue" data-toggle="button" tabindex="-1" data-original-title="Midnight Blue"></button><button type="button" class="qa_class_55" style="background-color:#21104A" data-event="foreColor" data-value="#21104A" title="" aria-label="Valentino" data-toggle="button" tabindex="-1" data-original-title="Valentino"></button><button type="button" class="qa_class_55" style="background-color:#4A1031" data-event="foreColor" data-value="#4A1031" title="" aria-label="Loulou" data-toggle="button" tabindex="-1" data-original-title="Loulou"></button></div></div></div><div><button type="button" class="qa_class_56 qa_class_21 qa_class_22 qa_class_51" data-event="openPalette" data-value="foreColorPicker-17943858987331">Select</button><input type="color" id="qa_id_18" class="qa_class_20 qa_class_57" value="#000000" data-event="foreColorPalette-17943858987331"></div><div class="qa_class_58" id="qa_id_19" data-event="foreColor"><div class="qa_class_53"><div class="qa_class_54"><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="foreColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="foreColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="foreColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="foreColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="foreColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="foreColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="foreColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button><button type="button" class="qa_class_55" style="background-color:#FFFFFF" data-event="foreColor" data-value="#FFFFFF" title="" aria-label="#FFFFFF" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button></div></div></div></div></div></div></div><div class="qa_class_17 qa_class_18 qa_class_59"><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23" tabindex="-1" title="" aria-label="Unordered list (⌘+⇧+NUM7)" data-original-title="Unordered list (⌘+⇧+NUM7)"><i class="qa_class_60"></i></button><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23" tabindex="-1" title="" aria-label="Ordered list (⌘+⇧+NUM8)" data-original-title="Ordered list (⌘+⇧+NUM8)"><i class="qa_class_61"></i></button><div class="qa_class_17 qa_class_18"><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23 qa_class_24" tabindex="-1" data-toggle="dropdown" title="" aria-label="Paragraph" data-original-title="Paragraph"><i class="qa_class_62"></i></button><div class="qa_class_26 qa_class_27" role="list"><div class="qa_class_17 qa_class_18 qa_class_63"><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23" tabindex="-1" title="" aria-label="Align left (⌘+⇧+L)" data-original-title="Align left (⌘+⇧+L)"><i class="qa_class_62"></i></button><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23" tabindex="-1" title="" aria-label="Align center (⌘+⇧+E)" data-original-title="Align center (⌘+⇧+E)"><i class="qa_class_64"></i></button><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23" tabindex="-1" title="" aria-label="Align right (⌘+⇧+R)" data-original-title="Align right (⌘+⇧+R)"><i class="qa_class_65"></i></button><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23" tabindex="-1" title="" aria-label="Justify full (⌘+⇧+J)" data-original-title="Justify full (⌘+⇧+J)"><i class="qa_class_66"></i></button></div><div class="qa_class_17 qa_class_18 qa_class_67"><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23" tabindex="-1" title="" aria-label="Outdent (⌘+[)" data-original-title="Outdent (⌘+[)"><i class="qa_class_68"></i></button><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23" tabindex="-1" title="" aria-label="Indent (⌘+])" data-original-title="Indent (⌘+])"><i class="qa_class_69"></i></button></div></div></div></div><div class="qa_class_17 qa_class_18 qa_class_70"><div class="qa_class_17 qa_class_18"><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23 qa_class_24" tabindex="-1" data-toggle="dropdown" title="" aria-label="Table" data-original-title="Table"><i class="qa_class_71"></i></button><div class="qa_class_26 qa_class_27 qa_class_70" role="list" aria-label="Table"><div class="qa_class_72"><div class="qa_class_73" data-event="insertTable" data-value="1x1" style="width: 10em; height: 10em;"></div><div class="qa_class_74"></div><div class="qa_class_75"></div></div><div class="qa_class_76">1 x 1</div></div></div></div><div class="qa_class_17 qa_class_18 qa_class_77"><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23" tabindex="-1" title="" aria-label="Link (⌘+K)" data-original-title="Link (⌘+K)"><i class="qa_class_78"></i></button><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23" tabindex="-1" title="" aria-label="Picture" data-original-title="Picture"><i class="qa_class_79"></i></button><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23" tabindex="-1" title="" aria-label="Video" data-original-title="Video"><i class="qa_class_80"></i></button></div><div class="qa_class_17 qa_class_18 qa_class_81"><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23 qa_class_82 qa_class_83" tabindex="-1" title="" aria-label="Full Screen" data-original-title="Full Screen"><i class="qa_class_84"></i></button><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23 qa_class_85 qa_class_83" tabindex="-1" title="" aria-label="Code View" data-original-title="Code View"><i class="qa_class_86"></i></button><button type="button" class="qa_class_20 qa_class_21 qa_class_22 qa_class_23" tabindex="-1" title="" aria-label="Help" data-original-title="Help"><i class="qa_class_87"></i></button></div></div><div class="qa_class_88"><div class="qa_class_89"><div class="qa_class_90"><div class="qa_class_91"></div><div class="qa_class_92 qa_class_93"></div><div class="qa_class_92 qa_class_94"></div><div class="qa_class_92 qa_class_95"></div><div class="qa_class_96 qa_class_97"></div><div class="qa_class_98"></div></div></div><textarea class="qa_class_99" aria-multiline="true"></textarea><div class="qa_class_100 qa_class_101" contenteditable="true" role="textbox" aria-multiline="true" spellcheck="true" autocorrect="true" style="height: 100px;"><p><br></p></div></div><output class="qa_class_102" role="status" aria-live="polite"></output><div class="qa_class_103" role="status"><div class="qa_class_104" aria-label="Resize"><div class="qa_class_105"></div><div class="qa_class_105"></div><div class="qa_class_105"></div></div></div><div class="qa_class_106 qa_class_107 qa_class_108" aria-hidden="false" tabindex="-1" role="dialog" aria-label="Insert Link"><div class="qa_class_109"><div class="qa_class_110"><div class="qa_class_111"><h4 class="qa_class_112">Insert Link</h4><button type="button" class="qa_class_113" data-bs-dismiss="modal" aria-label="Close" aria-hidden="true"></button></div><div class="qa_class_114"><div class="qa_class_4 qa_class_115"><label for="qa_id_20" class="qa_class_116">Text to display</label><input id="qa_id_20" class="qa_class_117 qa_class_7 qa_class_118 qa_class_119" type="text"></div><div class="qa_class_4 qa_class_115"><label for="qa_id_21" class="qa_class_116">To what URL should this link go?</label><input id="qa_id_21" class="qa_class_120 qa_class_7 qa_class_118 qa_class_119" type="text" value="http://"></div><div class="qa_class_121 qa_class_122"><label class="qa_class_123"><input type="checkbox" class="qa_class_124" checked="" aria-label="Open in new window" aria-checked="true"> Open in new window</label></div><div class="qa_class_121 qa_class_125"><label class="qa_class_123"><input type="checkbox" class="qa_class_124" checked="" aria-label="Use default protocol" aria-checked="true"> Use default protocol</label></div></div><div class="qa_class_126"><input type="button" href="#" class="qa_class_21 qa_class_127 qa_class_20 qa_class_128 qa_class_129" value="Insert Link" disabled=""></div></div></div></div><div class="qa_class_130 qa_class_131 qa_class_132 qa_class_133" data-bs-placement="bottom"><div class="qa_class_134"></div><div class="qa_class_135 qa_class_136"></div></div><div class="qa_class_106 qa_class_107" aria-hidden="false" tabindex="-1" role="dialog" aria-label="Insert Image"><div class="qa_class_109"><div class="qa_class_110"><div class="qa_class_111"><h4 class="qa_class_112">Insert Image</h4><button type="button" class="qa_class_113" data-bs-dismiss="modal" aria-label="Close" aria-hidden="true"></button></div><div class="qa_class_114"><div class="qa_class_4 qa_class_115 qa_class_137"><label for="qa_id_22" class="qa_class_116">Select from files</label><input id="qa_id_22" class="qa_class_138 qa_class_139 qa_class_118 qa_class_119" type="file" name="qa_name_22" accept="image/*" multiple="multiple"></div><div class="qa_class_4 qa_class_140"><label for="qa_id_23" class="qa_class_116">Image URL</label><input id="qa_id_23" class="qa_class_141 qa_class_7 qa_class_118 qa_class_119" type="text"></div></div><div class="qa_class_126"><input type="button" href="#" class="qa_class_21 qa_class_127 qa_class_20 qa_class_128 qa_class_142" value="Insert Image" disabled=""></div></div></div></div><div class="qa_class_130 qa_class_131 qa_class_132 qa_class_143" data-bs-placement="bottom"><div class="qa_class_134"></div><div class="qa_class_135 qa_class_136"></div></div><div class="qa_class_130 qa_class_131 qa_class_132 qa_class_144" data-bs-placement="bottom"><div class="qa_class_134"></div><div class="qa_class_135 qa_class_136"></div></div><div class="qa_class_106 qa_class_107" aria-hidden="false" tabindex="-1" role="dialog" aria-label="Insert Video"><div class="qa_class_109"><div class="qa_class_110"><div class="qa_class_111"><h4 class="qa_class_112">Insert Video</h4><button type="button" class="qa_class_113" data-bs-dismiss="modal" aria-label="Close" aria-hidden="true"></button></div><div class="qa_class_114"><div class="qa_class_4 qa_class_115 qa_class_145"><label for="qa_id_24" class="qa_class_116">Video URL <small class="qa_class_146">(YouTube, Google Drive, Vimeo, Vine, Instagram, DailyMotion, Youku, Peertube)</small></label><input id="qa_id_24" class="qa_class_147 qa_class_7 qa_class_118 qa_class_119" type="text"></div></div><div class="qa_class_126"><input type="button" href="#" class="qa_class_21 qa_class_127 qa_class_20 qa_class_128 qa_class_148" value="Insert Video" disabled=""></div></div></div></div><div class="qa_class_106 qa_class_107" aria-hidden="false" tabindex="-1" role="dialog" aria-label="Help"><div class="qa_class_109"><div class="qa_class_110"><div class="qa_class_111"><h4 class="qa_class_112">Help</h4><button type="button" class="qa_class_113" data-bs-dismiss="modal" aria-label="Close" aria-hidden="true"></button></div><div class="qa_class_114" style="max-height: 300px; overflow: scroll;"><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>ESC</kbd></label><span>Escape</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>ENTER</kbd></label><span>Insert Paragraph</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+Z</kbd></label><span>Undo the last command</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+SHIFT+Z</kbd></label><span>Redo the last command</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>TAB</kbd></label><span>Tab</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>SHIFT+TAB</kbd></label><span>Untab</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+B</kbd></label><span>Set a bold style</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+I</kbd></label><span>Set a italic style</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+U</kbd></label><span>Set a underline style</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+SHIFT+S</kbd></label><span>Set a strikethrough style</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+BACKSLASH</kbd></label><span>Clean a style</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+SHIFT+L</kbd></label><span>Set left align</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+SHIFT+E</kbd></label><span>Set center align</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+SHIFT+R</kbd></label><span>Set right align</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+SHIFT+J</kbd></label><span>Set full align</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+SHIFT+NUM7</kbd></label><span>Toggle unordered list</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+SHIFT+NUM8</kbd></label><span>Toggle ordered list</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+LEFTBRACKET</kbd></label><span>Outdent on current paragraph</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+RIGHTBRACKET</kbd></label><span>Indent on current paragraph</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+NUM0</kbd></label><span>Change current block's format as a paragraph(P tag)</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+NUM1</kbd></label><span>Change current block's format as H1</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+NUM2</kbd></label><span>Change current block's format as H2</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+NUM3</kbd></label><span>Change current block's format as H3</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+NUM4</kbd></label><span>Change current block's format as H4</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+NUM5</kbd></label><span>Change current block's format as H5</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+NUM6</kbd></label><span>Change current block's format as H6</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+ENTER</kbd></label><span>Insert horizontal rule</span><div class="qa_class_149"></div><label style="width: 180px; margin-right: 10px;"><kbd>CMD+K</kbd></label><span>Show Link Dialog</span></div><div class="qa_class_126"><p class="qa_class_150"><a href="http://summernote.org/" target="_blank" rel="noopener noreferrer">Summernote 0.8.20</a> · <a href="https://github.com/summernote/summernote" target="_blank" rel="noopener noreferrer">Project</a> · <a href="https://github.com/summernote/summernote/issues" target="_blank" rel="noopener noreferrer">Issues</a></p></div></div></div></div></div>
+                    </div>
+                </div>
+                <div class="qa_class_2">
+                    <div class="qa_class_3">
+                        <div class="qa_class_2">
+                            <div class="qa_class_5">
+                                <div class="qa_class_4">
+                                    <div class="qa_class_151">
+                                        <span class="qa_class_152">
+                                            <i class="qa_class_153 qa_class_154"></i>
+                                        </span>
+                                        <input type="text" class="qa_class_7" placeholder="Username" name="qa_name_23">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="qa_class_155">
+                                <input type="file" name="qa_name_24" class="qa_class_21 qa_class_51">
+                            </div>
+                            <div class="qa_class_156">
+                                <div class="qa_class_157">
+                                    <button class="qa_class_21 qa_class_127 qa_class_24" type="button" data-toggle="dropdown">
+                                        Know about us
+                                        <span class="qa_class_158"></span>
+                                    </button>
+                                    <ul class="qa_class_27">
+                                        <li><a href="//app.cloudqa.io" target="_blank">Applcation Login</a></li>
+                                        <li><a href="//cloudqa.io" target="_blank">Cloudqa Site</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qa_class_5">
+                        <div class="qa_class_4">
+                            <div class="qa_class_151">
+                                <span class="qa_class_152">
+                                    <i class="qa_class_153 qa_class_159"></i>
+                                </span>
+                                <input type="password" class="qa_class_7" placeholder="Password" name="qa_name_25">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qa_class_5">
+                        <div class="qa_class_4">
+                            <div class="qa_class_151">
+                                <span class="qa_class_152">
+                                    <i class="qa_class_153 qa_class_159"></i>
+                                </span>
+                                <input type="password" class="qa_class_7" placeholder="Confirm Password" name="qa_name_26">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="qa_class_2">
+                    <div class="qa_class_3">
+                        <input type="checkbox" id="qa_id_25" value="Agree" name="qa_name_27" required="">
+                        I agree to <a href="#">terms &amp; comments</a>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <div>
+                    <button class="qa_class_21 qa_class_127" type="submit" value="submit">Submit</button>
+                    <button class="qa_class_21 qa_class_127" type="reset" value="reset">Reset</button>
+                    <a href="//app.cloudqa.io" class="qa_class_21 qa_class_127">Cancel</a>
+                </div>
+            <input name="qa_name_28" type="hidden" value="CfDJ8PfpPsGuHZdPik6nHW7xCQA6LTwZ-zGU4tCfF_cRv53qMa5xbOJHrTIRix1jRbjJykeccD0q3VUczYT2atWc2JUnwPbxH5WeHRfY2317W3g-4VgrG5wUc8-soDdsbzI5gCsFAoS3oGSleBIEMs_arOI"></form>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                Launch demo modal
+            </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="mdo">Open modal for mdo</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="fat">Open modal for fat</button>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>IFrame without ID</h1>
+                    <iframe src="/Home/IFrame" style="width:100%;height:100vh;"></iframe>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>IFrame with ID</h1>
+                    <iframe id="iframeId" src="/Home/InnerNestedIFrame" style="width:100%;height:100vh;"></iframe>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-xs-12">
+                    <form method="post" class="well" id="shadowdomautomationtestform" action="/Home/AutomationPracticeForm">
+                        <h1>Shadow DOM</h1>
+                        <shadow-form><section slot="statedropdown">
+                                    <select class="form-control" id="state" name="State">
+                                        <option> -- Select Country -- </option>
+                                        <option value="Afganistan"> Afganistan </option>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                        <option value="Belgium">Belgium</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Cuba">Cuba</option>
+                                        <option value="Denmark">Denmark</option>
+                                        <option value="Egypt">Egypt</option>
+                                        <option value="Finland">Finland</option>
+                                        <option value="France">France</option>
+                                        <option value="Germany">Germany</option>
+                                        <option value="Greece">Greece</option>
+                                        <option value="Greenland">Greenland</option>
+                                        <option value="Hong Kong">Hong Kong</option>
+                                        <option value="India">India</option>
+                                        <option value="Indonesia">Indonesia</option>
+                                        <option value="Italy">Italy</option>
+                                        <option value="Japan">Japan</option>
+                                        <option value="Kenya">Kenya</option>
+                                        <option value="Malaysia">Malaysia</option>
+                                        <option value="Mexico">Mexico</option>
+                                        <option value="Nepal">Nepal</option>
+                                        <option value="Netherlands">Netherlands</option>
+                                        <option value="Philippines">Philippines</option>
+                                        <option value="Russia">Russia</option>
+                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                        <option value="Singapore">Singapore</option>
+                                        <option value="Turkey">Turkey</option>
+                                        <option value="United Arab Emirates">United Arab Emirates</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="United States">United States</option>
+                                        <option value="Zimbabwe">Zimbabwe</option>
+                                    </select>
+                            </section>
+                            <section slot="dropdownmenu">
+                                <ul class="dropdown-menu">
+                                    <li><a href="//app.cloudqa.io" target="_blank">Applcation Login</a></li>
+                                    <li><a href="//cloudqa.io" target="_blank">Cloudqa Site</a></li>
+                                </ul>
+                            </section>
+                            <section slot="fname">
+                                <input id="fname" name="fname" type="text" class="form-control" placeholder="Name">
+                             </section>
+                            <section slot="lname">
+                                <input id="lname" name="lname" type="text" class="form-control" placeholder="Name">
+                             </section>
+                            <section slot="gender">
+                                <input id="male" type="radio" name="gender" value="Male">
+                                <span name="male" for="male" class="control-label">Male</span>
+                                <input id="female" type="radio" name="gender" value="Female">
+                                <span name="female" for="female" class="control-label">Female</span>
+                                <input id="transgender" type="radio" name="gender" value="Transgender">
+                                <span name="transgender" for="female" class="control-label">Transgender</span>
+                            </section>
+                            <section slot="hobbies">
+                                <input type="checkbox" id="Dance" value="Dance" name="Hobbies">
+                                    <span name="Dance" for="Dance">Dance</span>
+                                    <input type="checkbox" id="Reading" value="Reading" name="Hobbies">
+                                    <span name="Reading" for="Reading">Reading</span>
+                                    <input type="checkbox" id="Cricket" value="Cricket" name="Hobbies">
+                                    <span name="Cricket" for="Cricket">Cricket</span>
+                            </section>
+                            <section slot="about">
+                                <textarea class="form-control" rows="3" placeholder="About Yourself" name="About"></textarea>
+                            </section>
+                            <section slot="description">
+                                <textarea class="form-control" rows="3" placeholder="" name="description"></textarea>
+                            </section>
+                        </shadow-form>
+                        <div>
+                            <s-button><button></button></s-button>
+                            <a href="//app.cloudqa.io" class="btn btn-primary">Cancel</a>
+                        </div>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8PfpPsGuHZdPik6nHW7xCQA6LTwZ-zGU4tCfF_cRv53qMa5xbOJHrTIRix1jRbjJykeccD0q3VUczYT2atWc2JUnwPbxH5WeHRfY2317W3g-4VgrG5wUc8-soDdsbzI5gCsFAoS3oGSleBIEMs_arOI"></form>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-xs-12">
+                    <form method="post" class="well" id="nestedshadowdomautomationtestform" action="/Home/AutomationPracticeForm">
+                        <h1>Nested Shadow DOM</h1>
+                        <nestedshadow-form></nestedshadow-form>
+                        <div>
+                            <s-button><button></button></s-button>
+                            <a href="//app.cloudqa.io" class="btn btn-primary">Cancel</a>
+                        </div>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8PfpPsGuHZdPik6nHW7xCQA6LTwZ-zGU4tCfF_cRv53qMa5xbOJHrTIRix1jRbjJykeccD0q3VUczYT2atWc2JUnwPbxH5WeHRfY2317W3g-4VgrG5wUc8-soDdsbzI5gCsFAoS3oGSleBIEMs_arOI"></form>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-xs-12">
+                    <form method="post" class="well" id="nestedshadowdomautomationtestform3" action="/Home/AutomationPracticeForm">
+                        <h1>Nested Shadow DOM with 3 Levels</h1>
+                        <nestedshadow-form3></nestedshadow-form3>
+                        <div>
+                            <s-button><button></button></s-button>
+                            <a href="//app.cloudqa.io" class="btn btn-primary">Cancel</a>
+                        </div>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8PfpPsGuHZdPik6nHW7xCQA6LTwZ-zGU4tCfF_cRv53qMa5xbOJHrTIRix1jRbjJykeccD0q3VUczYT2atWc2JUnwPbxH5WeHRfY2317W3g-4VgrG5wUc8-soDdsbzI5gCsFAoS3oGSleBIEMs_arOI"></form>
+                </div>
+            </div>
+             <div class="row mb-5">
+                <div class="col-xs-12">
+                    <form method="post" class="well" id="nestedshadowdomautomationtestform4" action="/Home/AutomationPracticeForm">
+                        <h1>Nested Shadow DOM with 4 Levels</h1>
+                        <nestedshadow-form4></nestedshadow-form4>
+                        <div>
+                            <s-button><button></button></s-button>
+                            <a href="//app.cloudqa.io" class="btn btn-primary">Cancel</a>
+                        </div>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8PfpPsGuHZdPik6nHW7xCQA6LTwZ-zGU4tCfF_cRv53qMa5xbOJHrTIRix1jRbjJykeccD0q3VUczYT2atWc2JUnwPbxH5WeHRfY2317W3g-4VgrG5wUc8-soDdsbzI5gCsFAoS3oGSleBIEMs_arOI"></form>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-xs-12">
+                    <form method="post" class="well" id="nestedshadowdomautomationtestform5" action="/Home/AutomationPracticeForm">
+                        <h1>Nested Shadow DOM with 5 Levels</h1>
+                        <nestedshadow-form5></nestedshadow-form5>
+                        <div>
+                            <s-button><button></button></s-button>
+                            <a href="//app.cloudqa.io" class="btn btn-primary">Cancel</a>
+                        </div>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8PfpPsGuHZdPik6nHW7xCQA6LTwZ-zGU4tCfF_cRv53qMa5xbOJHrTIRix1jRbjJykeccD0q3VUczYT2atWc2JUnwPbxH5WeHRfY2317W3g-4VgrG5wUc8-soDdsbzI5gCsFAoS3oGSleBIEMs_arOI"></form>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-xs-12">
+                    <form method="post" class="well" id="nestedshadowdomautomationtestform6" action="/Home/AutomationPracticeForm">
+                        <h1>Nested Shadow DOM with 6 Levels</h1>
+                        <nestedshadow-form6></nestedshadow-form6>
+                        <div>
+                            <s-button><button></button></s-button>
+                            <a href="//app.cloudqa.io" class="btn btn-primary">Cancel</a>
+                        </div>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8PfpPsGuHZdPik6nHW7xCQA6LTwZ-zGU4tCfF_cRv53qMa5xbOJHrTIRix1jRbjJykeccD0q3VUczYT2atWc2JUnwPbxH5WeHRfY2317W3g-4VgrG5wUc8-soDdsbzI5gCsFAoS3oGSleBIEMs_arOI"></form>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-xs-12">
+                    <h1>IFrame inside Shadow DOM</h1>
+                    <nestedshadow-iframe></nestedshadow-iframe>
+                    <div>
+                        <s-button><button></button></s-button>
+                        <a href="//app.cloudqa.io" class="btn btn-primary">Cancel</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button" aria-label="Close">
+                        <span araia-hidden="true">×</span>
+                    </button>
+                    This is Header
+                </div>
+                <div class="modal-body">
+                    This is body
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-palcement="top" title="" data-original-title="Tooltip">This is tooltip</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        });
+        function autocomplete(inp, arr) {
+            /*the autocomplete function takes two arguments,
+            the text field element and an array of possible autocompleted values:*/
+            var currentFocus;
+            /*execute a function when someone writes in the text field:*/
+            inp.addEventListener("input", function (e) {
+                var a, b, i, val = this.value;
+                /*close any already open lists of autocompleted values*/
+                closeAllLists();
+                if (!val) { return false; }
+                currentFocus = -1;
+                /*create a DIV element that will contain the items (values):*/
+                a = document.createElement("DIV");
+                a.setAttribute("id", this.id + "autocomplete-list");
+                a.setAttribute("class", "autocomplete-items");
+                /*append the DIV element as a child of the autocomplete container:*/
+                this.parentNode.appendChild(a);
+                /*for each item in the array...*/
+                for (i = 0; i < arr.length; i++) {
+                    /*check if the item starts with the same letters as the text field value:*/
+                    if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                        /*create a DIV element for each matching element:*/
+                        b = document.createElement("DIV");
+                        /*make the matching letters bold:*/
+                        b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                        b.innerHTML += arr[i].substr(val.length);
+                        /*insert a input field that will hold the current array item's value:*/
+                        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                        /*execute a function when someone clicks on the item value (DIV element):*/
+                        b.addEventListener("click", function (e) {
+                            /*insert the value for the autocomplete text field:*/
+                            inp.value = this.getElementsByTagName("input")[0].value;
+                            /*close the list of autocompleted values,
+                            (or any other open lists of autocompleted values:*/
+                            closeAllLists();
+                        });
+                        a.appendChild(b);
+                    }
+                }
+            });
+            /*execute a function presses a key on the keyboard:*/
+            inp.addEventListener("keydown", function (e) {
+                var x = document.getElementById(this.id + "autocomplete-list");
+                if (x) x = x.getElementsByTagName("div");
+                if (e.keyCode == 40) {
+                    /*If the arrow DOWN key is pressed,
+                    increase the currentFocus variable:*/
+                    currentFocus++;
+                    /*and and make the current item more visible:*/
+                    addActive(x);
+                } else if (e.keyCode == 38) { //up
+                    /*If the arrow UP key is pressed,
+                    decrease the currentFocus variable:*/
+                    currentFocus--;
+                    /*and and make the current item more visible:*/
+                    addActive(x);
+                } else if (e.keyCode == 13) {
+                    /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                    e.preventDefault();
+                    if (currentFocus > -1) {
+                        /*and simulate a click on the "active" item:*/
+                        if (x) x[currentFocus].click();
+                    }
+                }
+            });
+            function addActive(x) {
+                /*a function to classify an item as "active":*/
+                if (!x) return false;
+                /*start by removing the "active" class on all items:*/
+                removeActive(x);
+                if (currentFocus >= x.length) currentFocus = 0;
+                if (currentFocus < 0) currentFocus = (x.length - 1);
+                /*add class "autocomplete-active":*/
+                x[currentFocus].classList.add("autocomplete-active");
+            }
+            function removeActive(x) {
+                /*a function to remove the "active" class from all autocomplete items:*/
+                for (var i = 0; i < x.length; i++) {
+                    x[i].classList.remove("autocomplete-active");
+                }
+            }
+            function closeAllLists(elmnt) {
+                /*close all autocomplete lists in the document,
+                except the one passed as an argument:*/
+                var x = document.getElementsByClassName("autocomplete-items");
+                for (var i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != inp) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+            /*execute a function when someone clicks in the document:*/
+            document.addEventListener("click", function (e) {
+                closeAllLists(e.target);
+            });
+        }
+
+        /*An array containing all the country names in the world:*/
+        var countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua & Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia & Herzegovina", "Botswana", "Brazil", "British Virgin Islands", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central Arfrican Republic", "Chad", "Chile", "China", "Colombia", "Congo", "Cook Islands", "Costa Rica", "Cote D Ivoire", "Croatia", "Cuba", "Curacao", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands", "Faroe Islands", "Fiji", "Finland", "France", "French Polynesia", "French West Indies", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauro", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia", "Rwanda", "Saint Pierre & Miquelon", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "St Kitts & Nevis", "St Lucia", "St Vincent", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor L'Este", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks & Caicos", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Virgin Islands (US)", "Yemen", "Zambia", "Zimbabwe"];
+
+        /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+        autocomplete(document.getElementById("country"), countries);
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            //$('#automationtestform').on("submit", function (event) {
+            //    $('#infoMsg').removeClass('hide');
+            //    $('input').val("");
+            //    return false;
+            //});
+
+            //tinymce.init({
+            //    selector: '#mytextarea'
+            //});
+        });
+    </script>
+    <script>
+        customElements.define('shadow-form', class extends HTMLElement {
+            constructor() {
+                super()
+                this.attachShadow({ mode: 'open' })
+                    .innerHTML = `
+                                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+                                <div class="row">
+                                <div class="form-group col-xs-6">
+                                    <label for="fname" name="fname" class="control-label">First Name</label>
+                                    <slot name="fname"></slot>
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label for="lname" name="lname" class="control-label">Last Name</label>
+                                    <slot name="lname"></slot>
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label class="control-label">Gender</label>
+                                    <div class="col-lg-12">
+                                        <slot name="gender"></slot>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label name="State" for="state" class="control-label"> State </label>
+                                    <slot name="statedropdown"></slot>
+                                </div>
+                                <div class="form-group col-xs-12">
+                                    <label class="control-label">Hobbies</label>
+                                    <slot name="hobbies"></slot>
+                                </div>
+                                <div class="form-group col-xs-12">
+                                    <label class="control-label">About Yourself</label>
+                                    <slot name="about"></slot>
+                                </div>
+                                <div class="form-group col-xs-12">
+                                    <label class="control-label">Description</label>
+                                    <slot name="description"></slot>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <input type="checkbox" id="Agree" Value="Agree" name="Agree" required />
+                                    I agree to <a href="#">terms & comments</a>
+                                    <br />
+                                    <br />
+                                </div>
+                            </div>
+                            `
+            }
+            connectedCallback() {
+                this.innerHTML = `<section slot="statedropdown">
+                                    <select class="form-control" id="state" name="State">
+                                        <option> -- Select Country -- </option>
+                                        <option value="Afganistan"> Afganistan </option>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                        <option value="Belgium">Belgium</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Cuba">Cuba</option>
+                                        <option value="Denmark">Denmark</option>
+                                        <option value="Egypt">Egypt</option>
+                                        <option value="Finland">Finland</option>
+                                        <option value="France">France</option>
+                                        <option value="Germany">Germany</option>
+                                        <option value="Greece">Greece</option>
+                                        <option value="Greenland">Greenland</option>
+                                        <option value="Hong Kong">Hong Kong</option>
+                                        <option value="India">India</option>
+                                        <option value="Indonesia">Indonesia</option>
+                                        <option value="Italy">Italy</option>
+                                        <option value="Japan">Japan</option>
+                                        <option value="Kenya">Kenya</option>
+                                        <option value="Malaysia">Malaysia</option>
+                                        <option value="Mexico">Mexico</option>
+                                        <option value="Nepal">Nepal</option>
+                                        <option value="Netherlands">Netherlands</option>
+                                        <option value="Philippines">Philippines</option>
+                                        <option value="Russia">Russia</option>
+                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                        <option value="Singapore">Singapore</option>
+                                        <option value="Turkey">Turkey</option>
+                                        <option value="United Arab Emirates">United Arab Emirates</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="United States">United States</option>
+                                        <option value="Zimbabwe">Zimbabwe</option>
+                                    </select>
+                            </section>
+                            <section slot="dropdownmenu">
+                                <ul class="dropdown-menu">
+                                    <li><a href="//app.cloudqa.io" target="_blank">Applcation Login</a></li>
+                                    <li><a href="//cloudqa.io" target="_blank">Cloudqa Site</a></li>
+                                </ul>
+                            </section>
+                            <section slot="fname">
+                                <input id="fname" name="fname" type="text" class="form-control" placeholder="Name" />
+                             </section>
+                            <section slot="lname">
+                                <input id="lname" name="lname" type="text" class="form-control" placeholder="Name" />
+                             </section>
+                            <section slot="gender">
+                                <input id="male" type="radio" name="gender" value="Male" />
+                                <span name="male" for="male" class="control-label">Male</span>
+                                <input id="female" type="radio" name="gender" value="Female" />
+                                <span name="female" for="female" class="control-label">Female</span>
+                                <input id="transgender" type="radio" name="gender" value="Transgender" />
+                                <span name="transgender" for="female" class="control-label">Transgender</span>
+                            </section>
+                            <section slot="hobbies">
+                                <input type="checkbox" id="Dance" Value="Dance" name="Hobbies" />
+                                    <span name="Dance" for="Dance">Dance</span>
+                                    <input type="checkbox" id="Reading" Value="Reading" name="Hobbies" />
+                                    <span name="Reading" for="Reading">Reading</span>
+                                    <input type="checkbox" id="Cricket" Value="Cricket" name="Hobbies" />
+                                    <span name="Cricket" for="Cricket">Cricket</span>
+                            </section>
+                            <section slot="about">
+                                <textarea class="form-control" rows="3" placeholder="About Yourself" name="About"></textarea>
+                            </section>
+                            <section slot="description">
+                                <textarea class="form-control" rows="3" placeholder="" name="description"></textarea>
+                            </section>
+                        `
+            }
+        })
+        customElements.define('s-button', class extends HTMLElement {
+            connectedCallback() {
+                this.attachShadow({ mode: 'open' })
+                    .innerHTML = `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+                                            <button class="btn btn-primary">Submit</button>`
+                var submit = this.appendChild(document.createElement('button'))
+                this.onclick = () => submit.click()
+            }
+        })
+        customElements.define('nestedshadow-form', class extends HTMLElement {
+            constructor() {
+                super()
+                this.attachShadow({ mode: 'open' })
+                    .innerHTML = `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+                                          <shadow-form></shadow-form>`;
+            }
+        })
+        customElements.define('nestedshadow-form3', class extends HTMLElement {
+            constructor() {
+                super()
+                this.attachShadow({ mode: 'open' })
+                    .innerHTML = `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+                                                  <nestedshadow-form></nestedshadow-form>`;
+            }
+        })
+        customElements.define('nestedshadow-form4', class extends HTMLElement {
+            constructor() {
+                super()
+                this.attachShadow({ mode: 'open' })
+                    .innerHTML = `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+                                                  <nestedshadow-form3></nestedshadow-form3>`;
+            }
+        })
+        customElements.define('nestedshadow-form5', class extends HTMLElement {
+            constructor() {
+                super()
+                this.attachShadow({ mode: 'open' })
+                    .innerHTML = `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+                                                  <nestedshadow-form4></nestedshadow-form4>`;
+            }
+        })
+        customElements.define('nestedshadow-form6', class extends HTMLElement {
+            constructor() {
+                super()
+                this.attachShadow({ mode: 'open' })
+                    .innerHTML = `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+                                                          <nestedshadow-form5></nestedshadow-form5>`;
+            }
+        })
+        customElements.define('nestedshadow-iframe', class extends HTMLElement {
+            connectedCallback() {
+                this.attachShadow({ mode: 'open' })
+                    .innerHTML = `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+                                            <iframe id="iframeId" src="AutomationPracticeForm" style="width:100%;height:100vh;"></iframe>`
+            }
+        })
+    </script>
+
+</body></html>

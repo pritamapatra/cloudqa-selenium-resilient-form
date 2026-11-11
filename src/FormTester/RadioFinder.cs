@@ -54,25 +54,25 @@ return r;";
         (100, "legend"), (90, "gAria"), (70, "gName"), (50, "gPrev")
     };
 
-    public static FindResult Find(IWebDriver d, string groupLabel, string option)
+    public static FindResult Find(IWebDriver d, string groupLabel, string option, IWebElement? scope = null)
     {
         var deadline = DateTime.UtcNow.AddSeconds(10);
         FindResult result;
         do
         {
-            result = Attempt(d, groupLabel, option);
+            result = Attempt(d, groupLabel, option, scope);
             if (result.Element != null) return result;
             Thread.Sleep(500);
         } while (DateTime.UtcNow < deadline);
         return result;
     }
 
-    static FindResult Attempt(IWebDriver d, string groupLabel, string option)
+    static FindResult Attempt(IWebDriver d, string groupLabel, string option, IWebElement? scope)
     {
         var js = (IJavaScriptExecutor)d;
         var scored = new List<(IWebElement El, double Opt, double Grp, string Strategy)>();
 
-        foreach (var el in d.FindElements(By.CssSelector("input[type='radio']")))
+        foreach (var el in ((ISearchContext?)scope ?? d).FindElements(By.CssSelector("input[type='radio']")))
         {
             if (!el.Displayed || !el.Enabled) continue;
             var r = (IDictionary<string, object>?)js.ExecuteScript(Js, el) ?? new Dictionary<string, object>();
@@ -89,8 +89,7 @@ return r;";
         if (scored.Count == 0 || scored[0].Opt < Matcher.Threshold)
             return new(null, "", scored.Count == 0 ? 0 : scored[0].Opt,
                 $"no confident radio '{option}' in group '{groupLabel}' (best: {(top == "" ? "none" : top)})");
-        if (scored.Count > 1 && scored[1].Opt == scored[0].Opt && scored[1].Grp == scored[0].Grp
-            && Describe(scored[1].El).Split(" at=")[0] != Describe(scored[0].El).Split(" at=")[0])
+        if (scored.Count > 1 && scored[1].Opt == scored[0].Opt && scored[1].Grp == scored[0].Grp)
             return new(null, "", scored[0].Opt, $"ambiguous radio '{option}' in group '{groupLabel}' ({top}) {Describe(scored[0].El)} / {Describe(scored[1].El)}");
 
         return new(scored[0].El, $"{scored[0].Strategy}+group:{scored[0].Grp}", scored[0].Opt, null);

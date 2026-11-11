@@ -66,7 +66,7 @@ return r;";
         if (scored.Count == 0 || scored[0].Score < Matcher.Threshold)
             return new(null, "", scored.Count == 0 ? 0 : scored[0].Score,
                 $"no confident dropdown for '{label}' (best: {(top == "" ? "none" : top)})");
-        if (scored.Count > 1 && scored[1].Score == scored[0].Score && Key(scored[1].El) != Key(scored[0].El))
+        if (scored.Count > 1 && scored[1].Score == scored[0].Score)
             return new(null, "", scored[0].Score,
                 $"ambiguous dropdown for '{label}' ({top}) {Key(scored[0].El)} / {Key(scored[1].El)}");
 
