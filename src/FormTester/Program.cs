@@ -48,6 +48,66 @@ try
 
     var sd = DropdownFinder.Find(d, "State");
     if (sd.Element == null) Log("State", false, sd.Error!);
+    else if (!sd.Element.TagName.Equals("select", StringComparison.OrdinalIgnoreCase))
+    {
+        var combo = sd.Element;
+        var controls = combo.GetAttribute("aria-controls");
+        if (string.IsNullOrWhiteSpace(controls))
+            Log("State", false, "ARIA combobox has no aria-controls; unsupported popup association");
+        else
+        {
+            combo.Click();
+            var deadline = DateTime.UtcNow.AddSeconds(5);
+            var matches = new List<IWebElement>();
+            var available = new List<string>();
+            do
+            {
+                matches.Clear();
+                available.Clear();
+                foreach (var popupId in controls.Split(' ', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    var popup = ((IJavaScriptExecutor)d).ExecuteScript(
+                        "return document.getElementById(arguments[0]);", popupId) as IWebElement;
+                    if (popup == null || !popup.Displayed) continue;
+                    foreach (var option in popup.FindElements(By.CssSelector("[role='option']")))
+                    {
+                        if (!option.Displayed || !option.Enabled ||
+                            option.GetAttribute("aria-disabled") == "true") continue;
+                        available.Add(option.Text.Trim());
+                        if (Matcher.Normalize(option.Text) == Matcher.Normalize(c.State) &&
+                            !matches.Contains(option))
+                            matches.Add(option);
+                    }
+                }
+                if (matches.Count > 0) break;
+                Thread.Sleep(100);
+            } while (DateTime.UtcNow < deadline);
+
+            if (matches.Count == 0)
+                Log("State", false,
+                    $"ARIA option '{c.State}' not found (available: {string.Join(", ", available.Take(8))})");
+            else if (matches.Count > 1)
+                Log("State", false, $"ambiguous ARIA option '{c.State}': {matches.Count} matches");
+            else
+            {
+                matches[0].Click();
+                var actual = "";
+                var verified = false;
+                deadline = DateTime.UtcNow.AddSeconds(5);
+                do
+                {
+                    actual = combo.TagName.Equals("input", StringComparison.OrdinalIgnoreCase)
+                        ? combo.GetAttribute("value") ?? ""
+                        : combo.Text.Trim();
+                    verified = Matcher.Normalize(actual) == Matcher.Normalize(c.State);
+                    if (verified) break;
+                    Thread.Sleep(100);
+                } while (DateTime.UtcNow < deadline);
+                Log("State", verified,
+                    $"strategy={sd.Strategy}+aria-combobox confidence={sd.Score} selected='{actual}'");
+            }
+        }
+    }
     else
     {
         var options = sd.Element.FindElements(By.TagName("option"));

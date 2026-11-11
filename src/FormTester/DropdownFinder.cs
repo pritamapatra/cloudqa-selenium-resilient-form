@@ -50,7 +50,7 @@ return r;";
         var js = (IJavaScriptExecutor)d;
         var scored = new List<(IWebElement El, double Score, string Strategy)>();
 
-        foreach (var el in d.FindElements(By.CssSelector("select")))
+        foreach (var el in d.FindElements(By.CssSelector("select, [role='combobox']")))
         {
             if (!el.Displayed || !el.Enabled) continue;
             var r = (IDictionary<string, object>?)js.ExecuteScript(Js, el) ?? new Dictionary<string, object>();
@@ -79,7 +79,7 @@ return r;";
     {
         var js = (IJavaScriptExecutor)d;
         var lines = new List<string>();
-        foreach (var el in d.FindElements(By.CssSelector("select")))
+        foreach (var el in d.FindElements(By.CssSelector("select, [role='combobox']")))
         {
             var r = (IDictionary<string, object>?)js.ExecuteScript(Js, el) ?? new Dictionary<string, object>();
             string S(string k) => r.TryGetValue(k, out var v) ? v?.ToString() ?? "" : "";
