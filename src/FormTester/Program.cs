@@ -3,23 +3,39 @@ using OpenQA.Selenium.Chrome;
 
 var c = Config.Resolve(args);
 using var d = new ChromeDriver();
+var failed = 0;
+
+void Log(string field, bool ok, string msg)
+{
+    Console.WriteLine($"{(ok ? "PASS" : "FAIL")} {field} | {msg}");
+    if (!ok) failed++;
+}
+
 try
 {
     d.Navigate().GoToUrl(c.Url);
-    var r = TextFieldFinder.Find(d, "First Name");
-    if (r.Element == null)
+
+    var t = TextFieldFinder.Find(d, "First Name");
+    if (t.Element == null) Log("First Name", false, t.Error!);
+    else
     {
-        Console.WriteLine($"FAIL First Name: {r.Error}");
-        return 1;
+        t.Element.Clear();
+        t.Element.SendKeys(c.FirstName);
+        var actual = t.Element.GetAttribute("value");
+        Log("First Name", actual == c.FirstName, $"strategy={t.Strategy} confidence={t.Score} value='{actual}'");
     }
-    r.Element.Clear();
-    r.Element.SendKeys(c.FirstName);
-    var actual = r.Element.GetAttribute("value");
-    var ok = actual == c.FirstName;
-    Console.WriteLine($"{(ok ? "PASS" : "FAIL")} First Name | strategy={r.Strategy} confidence={r.Score} | value='{actual}'");
-    return ok ? 0 : 1;
+
+    var g = RadioFinder.Find(d, "Gender", c.Gender);
+    if (g.Element == null) Log("Gender", false, g.Error!);
+    else
+    {
+        try { g.Element.Click(); }
+        catch (WebDriverException) { ((IJavaScriptExecutor)d).ExecuteScript("arguments[0].click()", g.Element); }
+        Log("Gender", g.Element.Selected, $"strategy={g.Strategy} confidence={g.Score} selected={g.Element.Selected}");
+    }
 }
 finally
 {
     d.Quit();
 }
+return failed == 0 ? 0 : 1;
